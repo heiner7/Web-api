@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebSite.Models.Detalle>
+
+@{
+    ViewBag.Title = "Consultar Detalle";
+}
+
+<h2>consultarDetalle</h2>
+
+@if (Model.Count() > 0)
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <tr class="table-header">
+                <th>Id Articulo</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Eliminar Detalle </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id_articulo</td>
+                    <td>@item.cantidad</td>
+                    <td>@item.precio</td>
+
+                    <td class="text-center">
+                        <button class="btnDelete" data-id="@item.id">Eliminar</button>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+    
+}
+
+<p>
+    <!-- Html.ActionLink("Edit", "Edit", new { id = Model.id }) |-->
+    @Html.ActionLink("Regresar a consulta articulo", "obtenerArticulo", "Articulo")
+</p>

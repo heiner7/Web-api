@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebSite.Models.Articulo>
+
+@{
+    ViewBag.Title = "Consultar Articulos";
+}
+
+<h2>obtenerArticulo</h2>
+
+
+
+
+@if (Model.Count() > 0)
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <tr class="table-header">
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Codigo</th>
+                <th>Consulta Detalle</th>
+                <th>Modificar </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.nombre</td>
+                    <td>@item.descripcion</td>
+                    <td>@item.precio</td>
+                    <td>@item.codigo</td>
+
+                    <td><input type="button" value="Seleccionar" onclick="window.location='@Url.Action("consultarDetalle", "DetalleArticulo", new { id = item.id })'" /></td>
+                    <td><input type="button" value="Seleccionar" onclick="window.location='@Url.Action("modificarArticulo","Articulo", new  { id = item.id })'" /></td>
+
+                </tr>
+            }
+        </table>
+    </div>
+
+}
+
+
+<p>
+    <!-- Html.ActionLink("Edit", "Edit", new  { id = Model.id }) |-->
+    @Html.ActionLink("Regresar pagina principal", "Index", "Home")
+</p>
