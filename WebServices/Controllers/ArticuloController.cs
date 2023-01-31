@@ -18,7 +18,7 @@ namespace WebServices.Controllers
 
         List<ArticuloClass> articulos = new List<ArticuloClass>();
         List<DetalleClass> detalleArticulo = new List<DetalleClass>();
-        string conexion = "data source=DESKTOP-T2UP07I;initial catalog=Prueba;integrated security=True";
+        string conexion = "data source=.;initial catalog=NombreTabla;integrated security=True";
 
         [HttpGet]
         [Route("api/articulo/obtenerArticulo")]
